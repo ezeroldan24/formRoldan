@@ -1,0 +1,41 @@
+<h1>Ingrese su cuenta!</h1>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- email control-->
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input 
+        formControlName="email" 
+        type="text"  
+        [ngClass]="{'is-invalid': userForm.controls['email'].invalid && userForm.controls['email'].touched}"  
+        class="form-control" >
+        <div class = "invalid-feedback">
+          Email invalido.
+        </div>
+      </div>
+    </div>
+<!-- Email invalido y touch-->
+
+        <!-- passsword control-->
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input 
+        type="password" 
+        formControlName="password" 
+        [ngClass]="{'is-invalid': userForm.controls['password'].invalid && userForm.controls['password'].touched}"  
+        class="form-control" 
+        class="form-control" 
+        id="inputPassword" 
+        placeholder="Password">
+        <div class = "invalid-feedback">
+            La contraseña es invalida.
+          </div>
+      </div>
+    </div>
+
+    <button
+    class = "btn btn-primary" 
+    type ="submit">Enviar</button>
+  </form>
